@@ -1,5 +1,5 @@
 <template>
-  <div id="public_area">
+  <div id="public_workExperience">
     <div class="sort_menu">
       <div class="sort_title">{{ titleName }}</div>
       <ul>
@@ -15,23 +15,17 @@
 
 <script>
   export default {
-    name: 'public_area',
+    name: 'public_workExperience',
     data() {
       return {
-        titleName: '所在地区',
+        titleName: '工作经验',
         items: [
           {name: '全部', id: 0},
-          {name: '杭州', id: 1},
-          {name: '上海', id: 2},
-          {name: '深圳', id: 3},
-          {name: '武汉', id: 4},
-          {name: '成都', id: 5},
-          {name: '苏州', id: 6},
-          {name: '重庆', id: 7},
-          {name: '广州', id: 8},
-          {name: '济南', id: 9},
-          {name: '厦门', id: 10},
-          {name: '南京', id: 11}
+          {name: '无经验', id: 1},
+          {name: '1-3年', id: 2},
+          {name: '3-5年', id: 3},
+          {name: '5-10年', id: 4},
+          {name: '10年以上', id: 5}
         ],
         choose: 0
       }
@@ -39,7 +33,7 @@
     methods: {
       getId(id) {
         this.choose = id;
-        this.$emit('setAreaId', id)
+        this.$emit('setWorkExperienceId', id)
       }
     }
   }

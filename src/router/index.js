@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeIndex from 'components/home/index'
 import ProductIndex from 'components/product/index'
+import PartnerIndex from 'components/partner/index'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const router = new VueRouter({
       path: '/productIndex',
       name: 'productIndex',
       component: ProductIndex
+    },
+    {
+      path: '/partnerIndex',
+      name: 'partnerIndex',
+      component: PartnerIndex
     }
   ]
 })

@@ -1,20 +1,21 @@
 <template>
-    <div id="industrySector">
-      <div class="sort_menu">
-        <div class="sort_title">{{ titleName }}</div>
-        <ul>
-          <li v-for="item in items">
-            <a href="javaScript:void(0)" @click="getId(item.id)" :key="item.id" :class="{ on: item.id == choose }">
-              {{item.name}}
-            </a>
-          </li>
-        </ul>
-      </div>
+  <div id="public_industrySector">
+    <div class="sort_menu">
+      <div class="sort_title">{{ titleName }}</div>
+      <ul>
+        <li v-for="item in items">
+          <a href="javaScript:void(0)" @click="getId(item.id)" :key="item.id" :class="{ on: item.id == choose }">
+            {{item.name}}
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
   export default {
+    name: 'public_industrySector',
     data() {
       return {
         titleName: '行业领域',
@@ -32,7 +33,7 @@
           {name: '二次元', id: 10},
           {name: '其他', id: 11}
         ],
-        choose:0
+        choose: 0
       }
     },
     methods: {

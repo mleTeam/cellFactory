@@ -1,15 +1,31 @@
 <template>
   <div id="product_index">
-      <public-head></public-head>
-      <div class="main">
-        <div class="main_cont">
-          <div class="m_search_left">
-            <public-area @setAreaId="setAreaId"></public-area>
-            <public-industry-sector @setSectorId="setSectorId"></public-industry-sector>
+    <public-head></public-head>
+    <div class="main">
+      <div class="main_cont">
+        <div class="m_search_left">
+          <public-area @setAreaId="_setAreaId"></public-area>
+          <public-industry-sector @setSectorId="_setSectorId"></public-industry-sector>
+        </div>
+        <div class="m_search_right">
+          <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
+          <div class="search_pro_list">
+            <ul>
+              <li v-for="item in items" :key="item.pruduct_id">
+                <div><a href="javaScript:void(0)">{{item.product_name}}</a><span
+                  :class="{ status_send: item.product_state == 2 }">{{item.product_state | productState}}</span></div>
+                <p><b v-for="tag in item.product_tag">{{tag.name}}</b></p>
+                <b>{{item.product_address}}</b>
+                <font><i>已申请<strong>{{item.product_apply_count}}</strong>人</i><i>已浏览<strong>{{item.product_view_count}}</strong>次</i></font>
+              </li>
+            </ul>
           </div>
+          <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
         </div>
       </div>
-      <public-bottom></public-bottom>
+      <div class="clearfix"></div>
+    </div>
+    <public-bottom></public-bottom>
   </div>
 </template>
 
@@ -23,8 +39,82 @@
     name: 'product_index',
     data() {
       return {
-        areaId:0,
-        sectorId:0
+        areaId: 0,
+        sectorId: 0,
+        items: [
+          {
+            pruduct_id: 1,
+            product_name: '金融大数据智能导航系统平台',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 232,
+            product_view_count: 56200,
+            product_state: 1
+          },
+          {
+            pruduct_id: 2,
+            product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 9,
+            product_view_count: 153,
+            product_state: 2
+          },
+          {
+            pruduct_id: 3,
+            product_name: '大学生校园电影院',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '暂无',
+            product_apply_count: 23,
+            product_view_count: 1200,
+            product_state: 2
+          },
+          {
+            pruduct_id: 4,
+            product_name: '金融大数据智能导航系统平台',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 232,
+            product_view_count: 56200,
+            product_state: 1
+          },
+          {
+            pruduct_id: 5,
+            product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 9,
+            product_view_count: 153,
+            product_state: 2
+          },
+          {
+            pruduct_id: 6,
+            product_name: '大学生校园电影院',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '暂无',
+            product_apply_count: 23,
+            product_view_count: 1200,
+            product_state: 2
+          },
+          {
+            pruduct_id: 7,
+            product_name: '金融大数据智能导航系统平台',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 232,
+            product_view_count: 56200,
+            product_state: 1
+          },
+          {
+            pruduct_id: 8,
+            product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
+            product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
+            product_address: '杭州市滨江xxx孵化基地',
+            product_apply_count: 9,
+            product_view_count: 153,
+            product_state: 2
+          }
+        ]
       }
     },
     components: {
@@ -33,14 +123,34 @@
       PublicArea,
       PublicIndustrySector
     },
+    mounted() {
+      this._showPage()
+    },
     methods: {
-      setAreaId(id){
+      _setAreaId(id) {
         this.areaId = id
-        console.log('已选地区ID:'+this.areaId)
+        console.log('已选地区ID:' + this.areaId)
       },
-      setSectorId(id){
+      _setSectorId(id) {
         this.sectorId = id
-        console.log('已选行业领域ID:'+this.sectorId)
+        console.log('已选行业领域ID:' + this.sectorId)
+      },
+      _showPage() {
+        let paging1 = $("#paging1")
+        paging1.pagination({
+          items: 10,
+          itemsOnPage: 1,
+          cssStyle: 'light-theme'
+        })
+      }
+    },
+    filters: {
+      productState: function (value) {
+        if (value == 1) {
+          return '招募中'
+        } else if (value == 2) {
+          return '已投递'
+        }
       }
     }
   }
