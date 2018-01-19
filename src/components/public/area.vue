@@ -32,7 +32,7 @@
           {name: '厦门', id: 10},
           {name: '南京', id: 11}
         ],
-        choose:0
+        choose: 0
       }
     },
     methods: {
