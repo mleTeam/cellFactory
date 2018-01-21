@@ -4,22 +4,14 @@
     <div class="main">
       <div class="main_cont">
         <div class="m_search_left">
-          <public-search-options @setId="_setAreaId" :items="area.items" :titleName="area.titleName"></public-search-options>
-          <public-search-options @setId="_setSectorId" :items="industrySector.items" :titleName="industrySector.titleName"></public-search-options>
+          <public-search-options @setId="_setAreaId" :items="area.items"
+                                 :titleName="area.titleName"></public-search-options>
+          <public-search-options @setId="_setSectorId" :items="industrySector.items"
+                                 :titleName="industrySector.titleName"></public-search-options>
         </div>
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
-          <div class="search_pro_list">
-            <ul>
-              <li v-for="item in items" :key="item.product_id">
-                <div><a href="javaScript:void(0)">{{item.product_name}}</a><span
-                  :class="{ status_send: item.product_state == 2 }">{{item.product_state | productState}}</span></div>
-                <p><b v-for="tag in item.product_tag">{{tag.name}}</b></p>
-                <b>{{item.product_address}}</b>
-                <font><i>已申请<strong>{{item.product_apply_count}}</strong>人</i><i>已浏览<strong>{{item.product_view_count}}</strong>次</i></font>
-              </li>
-            </ul>
-          </div>
+          <product-list :items="items"></product-list>
           <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
         </div>
       </div>
@@ -33,14 +25,21 @@
   import PublicHead from 'components/public/head'
   import PublicBottom from 'components/public/bottom'
   import PublicSearchOptions from 'components/public/searchOptions'
+  import ProductList from 'components/product/list'
 
   export default {
     name: 'product_index',
+    components: {
+      PublicHead,
+      PublicBottom,
+      PublicSearchOptions,
+      ProductList
+    },
     data() {
       return {
         areaId: 0,
         sectorId: 0,
-        area:{
+        area: {
           titleName: '所在地区',
           items: [
             {name: '全部', id: 0},
@@ -57,9 +56,9 @@
             {name: '南京', id: 11}
           ]
         },
-        industrySector:{
+        industrySector: {
           titleName: '行业领域',
-          items:[
+          items: [
             {name: '全部', id: 0},
             {name: '金融', id: 1},
             {name: '企业服务', id: 2},
@@ -148,13 +147,8 @@
             product_state: 2
           }
         ],
-        page: 1
+        currentPage: 1
       }
-    },
-    components: {
-      PublicHead,
-      PublicBottom,
-      PublicSearchOptions,
     },
     mounted() {
       this._showPage()
@@ -173,18 +167,9 @@
         paging1.pagination({
           items: 10,
           itemsOnPage: 1,
-          currentPage: this.page,
+          currentPage: this.currentPage,
           cssStyle: 'light-theme'
         })
-      }
-    },
-    filters: {
-      productState: function (value) {
-        if (value == 1) {
-          return '招募中'
-        } else if (value == 2) {
-          return '已投递'
-        }
       }
     }
   }

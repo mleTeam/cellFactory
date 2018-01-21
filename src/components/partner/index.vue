@@ -5,23 +5,16 @@
       <div class="main">
         <div class="main_cont">
           <div class="m_search_left">
-            <public-search-options @setId="_setAreaId" :items="area.items" :titleName="area.titleName"></public-search-options>
-            <public-search-options @setId="_setWorkExperienceId" :items="workExperience.items" :titleName="workExperience.titleName"></public-search-options>
-            <public-search-options @setId="_setEducation" :items="education.items" :titleName="education.titleName"></public-search-options>
+            <public-search-options @setId="_setAreaId" :items="area.items"
+                                   :titleName="area.titleName"></public-search-options>
+            <public-search-options @setId="_setWorkExperienceId" :items="workExperience.items"
+                                   :titleName="workExperience.titleName"></public-search-options>
+            <public-search-options @setId="_setEducation" :items="education.items"
+                                   :titleName="education.titleName"></public-search-options>
           </div>
           <div class="m_search_right">
             <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
-            <div class="search_partner_list">
-              <ul>
-                <li v-for="item in items" :key="item.id">
-                  <div><a href="javaScript:void(0)" @click="_showInfo(item.user_id)">{{item.user_name}} [ UI设计师 ]</a>
-                  </div>
-                  <p><b v-for="job_tag in item.user_job_tag">{{job_tag.name}}</b></p>
-                  <font><i>{{item.user_education}}</i><i>|</i><i>{{item.user_workExperience}}</i></font>
-                  <a href="javaScript:void(0)" class="btn_zm">立即招募</a>
-                </li>
-              </ul>
-            </div>
+            <partner-list :items="items"></partner-list>
             <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
           </div>
         </div>
@@ -36,6 +29,7 @@
   import PublicHead from 'components/public/head'
   import PublicBottom from 'components/public/bottom'
   import PublicSearchOptions from 'components/public/searchOptions'
+  import PartnerList from 'components/partner/list'
 
   export default {
     name: 'partner_index',
@@ -43,12 +37,14 @@
       PublicHead,
       PublicBottom,
       PublicSearchOptions,
+      PartnerList
     },
     data() {
       return {
         areaId: 0,
         workExperienceId: 0,
         educationId: 0,
+        currentPage: 1,
         area: {
           titleName: '所在地区',
           items: [
