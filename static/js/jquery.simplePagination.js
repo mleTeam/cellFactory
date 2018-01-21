@@ -29,6 +29,7 @@
 				onPageClick: function(pageNumber, event) {
 					// Callback triggered when a page is clicked
 					// Page number is given as an optional parameter
+          console.log(pageNumber)
 				},
 				onInit: function() {
 					// Callback triggered immediately after initialization
@@ -211,7 +212,7 @@
 		}
 
 	};
-	
+
 	$.fn.pagination = function(method) {
 
 		// Method calling logic

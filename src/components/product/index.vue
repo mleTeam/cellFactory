@@ -4,14 +4,14 @@
     <div class="main">
       <div class="main_cont">
         <div class="m_search_left">
-          <public-area @setAreaId="_setAreaId"></public-area>
-          <public-industry-sector @setSectorId="_setSectorId"></public-industry-sector>
+          <public-search-options @setId="_setAreaId" :items="area.items" :titleName="area.titleName"></public-search-options>
+          <public-search-options @setId="_setSectorId" :items="industrySector.items" :titleName="industrySector.titleName"></public-search-options>
         </div>
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
           <div class="search_pro_list">
             <ul>
-              <li v-for="item in items" :key="item.pruduct_id">
+              <li v-for="item in items" :key="item.product_id">
                 <div><a href="javaScript:void(0)">{{item.product_name}}</a><span
                   :class="{ status_send: item.product_state == 2 }">{{item.product_state | productState}}</span></div>
                 <p><b v-for="tag in item.product_tag">{{tag.name}}</b></p>
@@ -32,8 +32,7 @@
 <script>
   import PublicHead from 'components/public/head'
   import PublicBottom from 'components/public/bottom'
-  import PublicArea from 'components/public/area'
-  import PublicIndustrySector from 'components/public/industrySector'
+  import PublicSearchOptions from 'components/public/searchOptions'
 
   export default {
     name: 'product_index',
@@ -41,9 +40,43 @@
       return {
         areaId: 0,
         sectorId: 0,
+        area:{
+          titleName: '所在地区',
+          items: [
+            {name: '全部', id: 0},
+            {name: '杭州', id: 1},
+            {name: '上海', id: 2},
+            {name: '深圳', id: 3},
+            {name: '武汉', id: 4},
+            {name: '成都', id: 5},
+            {name: '苏州', id: 6},
+            {name: '重庆', id: 7},
+            {name: '广州', id: 8},
+            {name: '济南', id: 9},
+            {name: '厦门', id: 10},
+            {name: '南京', id: 11}
+          ]
+        },
+        industrySector:{
+          titleName: '行业领域',
+          items:[
+            {name: '全部', id: 0},
+            {name: '金融', id: 1},
+            {name: '企业服务', id: 2},
+            {name: '体育', id: 3},
+            {name: '技术', id: 4},
+            {name: '消费', id: 5},
+            {name: '文化娱乐', id: 6},
+            {name: '教育', id: 7},
+            {name: '汽车交通', id: 8},
+            {name: '人工智能', id: 9},
+            {name: '二次元', id: 10},
+            {name: '其他', id: 11}
+          ]
+        },
         items: [
           {
-            pruduct_id: 1,
+            product_id: 1,
             product_name: '金融大数据智能导航系统平台',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -52,7 +85,7 @@
             product_state: 1
           },
           {
-            pruduct_id: 2,
+            product_id: 2,
             product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -61,7 +94,7 @@
             product_state: 2
           },
           {
-            pruduct_id: 3,
+            product_id: 3,
             product_name: '大学生校园电影院',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '暂无',
@@ -70,7 +103,7 @@
             product_state: 2
           },
           {
-            pruduct_id: 4,
+            product_id: 4,
             product_name: '金融大数据智能导航系统平台',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -79,7 +112,7 @@
             product_state: 1
           },
           {
-            pruduct_id: 5,
+            product_id: 5,
             product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -88,7 +121,7 @@
             product_state: 2
           },
           {
-            pruduct_id: 6,
+            product_id: 6,
             product_name: '大学生校园电影院',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '暂无',
@@ -97,7 +130,7 @@
             product_state: 2
           },
           {
-            pruduct_id: 7,
+            product_id: 7,
             product_name: '金融大数据智能导航系统平台',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -106,7 +139,7 @@
             product_state: 1
           },
           {
-            pruduct_id: 8,
+            product_id: 8,
             product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
             product_tag: [{name: '程序开发'}, {name: 'ui设计'}, {name: '系统测试'}],
             product_address: '杭州市滨江xxx孵化基地',
@@ -114,14 +147,14 @@
             product_view_count: 153,
             product_state: 2
           }
-        ]
+        ],
+        page: 1
       }
     },
     components: {
       PublicHead,
       PublicBottom,
-      PublicArea,
-      PublicIndustrySector
+      PublicSearchOptions,
     },
     mounted() {
       this._showPage()
@@ -140,6 +173,7 @@
         paging1.pagination({
           items: 10,
           itemsOnPage: 1,
+          currentPage: this.page,
           cssStyle: 'light-theme'
         })
       }
