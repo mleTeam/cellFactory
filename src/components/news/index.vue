@@ -6,7 +6,7 @@
         <news-banner :items="banner"></news-banner>
         <div class="news_left">
           <news-list :items="items"></news-list>
-          <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
+          <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="currentPage"></public-paging>
         </div>
         <div class="news_right">
           <span>公告</span>
@@ -25,6 +25,7 @@
   import NewsBanner from 'components/news/banner'
   import NewsList from 'components/news/list'
   import NewsNotice from 'components/news/notice'
+  import PublicPaging from 'components/public/paging'
 
   export default {
     name: 'news_index',
@@ -33,11 +34,14 @@
       PublicBottom,
       NewsBanner,
       NewsList,
-      NewsNotice
+      NewsNotice,
+      PublicPaging
     },
     data() {
       return {
         currentPage: 1,
+        size: 200,
+        limit: 10,
         banner: [
           {id: 1, intro: '获3.6亿C轮融资，聚合数据欲打造大数据行业里的“天猫”', img: 'static/img/news/pic1.jpg'},
           {id: 2, intro: '不同云应用间传输数据，SnapLogic获4000万美元F轮融资', img: 'static/img/news/pic2.jpg'},
@@ -64,20 +68,6 @@
             intro: '明石创新起初只是一个家族企业，2014年的一次股权置换，让公司发生了脱胎换骨的变化：从没有估值的家族企业，翻身成了估值138亿的巨头。',
             img: 'static/img/news/pic4.jpg',
             date: '2018-01-10'
-          },
-          {
-            id: 7,
-            title: '从家族企业到估值200亿的巨头，新三板最低调PE怎么玩？',
-            intro: '明石创新起初只是一个家族企业，2014年的一次股权置换，让公司发生了脱胎换骨的变化：从没有估值的家族企业，翻身成了估值138亿的巨头。',
-            img: 'static/img/news/pic4.jpg',
-            date: '2018-01-10'
-          },
-          {
-            id: 8,
-            title: '面对转型，企业该如何通过“模拟”走出困境',
-            intro: '她会告诉你：为什么模拟如此重要？何时模拟最有效？如何去应用模拟？她会告诉你：为什么模拟如此重要？何时模拟最有效？如何去应用模拟？她会告诉你：为什么模拟如此重要？何时模拟最有效？如何去应用模拟？',
-            img: 'static/img/news/pic5.jpg',
-            date: '2018-01-10'
           }
         ],
         notice: [
@@ -91,18 +81,9 @@
         ]
       }
     },
-    mounted() {
-      this._showPage()
-    },
     methods: {
-      _showPage() {
-        let paging1 = $("#paging1")
-        paging1.pagination({
-          items: 10,
-          itemsOnPage: 1,
-          currentPage: this.currentPage,
-          cssStyle: 'light-theme'
-        })
+      _choosePage(page) {
+        console.log('跳转第' + page + '页')
       }
     }
   }

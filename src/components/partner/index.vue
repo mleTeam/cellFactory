@@ -15,7 +15,7 @@
           <div class="m_search_right">
             <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
             <partner-list :items="items"></partner-list>
-            <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
+            <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="currentPage"></public-paging>
           </div>
         </div>
         <div class="clearfix"></div>
@@ -30,6 +30,7 @@
   import PublicBottom from 'components/public/bottom'
   import PublicSearchOptions from 'components/public/searchOptions'
   import PartnerList from 'components/partner/list'
+  import PublicPaging from 'components/public/paging'
 
   export default {
     name: 'partner_index',
@@ -37,7 +38,8 @@
       PublicHead,
       PublicBottom,
       PublicSearchOptions,
-      PartnerList
+      PartnerList,
+      PublicPaging
     },
     data() {
       return {
@@ -45,6 +47,8 @@
         workExperienceId: 0,
         educationId: 0,
         currentPage: 1,
+        size: 200,
+        limit: 10,
         area: {
           titleName: '所在地区',
           items: [
@@ -153,9 +157,6 @@
         ]
       }
     },
-    mounted() {
-      this._showPage()
-    },
     methods: {
       _setAreaId(id) {
         this.areaId = id
@@ -169,13 +170,8 @@
         this.educationId = id
         console.log('已选学历ID:' + this.educationId)
       },
-      _showPage() {
-        let paging1 = $("#paging1")
-        paging1.pagination({
-          items: 15,
-          itemsOnPage: 1,
-          cssStyle: 'light-theme'
-        })
+      _choosePage(page) {
+        console.log('跳转第' + page + '页')
       },
       _showInfo(id) {
         console.log('跳转用户信息,ID:' + id)

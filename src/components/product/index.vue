@@ -12,7 +12,7 @@
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
           <product-list :items="items"></product-list>
-          <paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="cur"></paging>
+          <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="cur"></public-paging>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -26,7 +26,7 @@
   import PublicBottom from 'components/public/bottom'
   import PublicSearchOptions from 'components/public/searchOptions'
   import ProductList from 'components/product/list'
-  import Paging from 'components/public/paging'
+  import PublicPaging from 'components/public/paging'
 
   export default {
     name: 'product_index',
@@ -35,7 +35,7 @@
       PublicBottom,
       PublicSearchOptions,
       ProductList,
-      Paging
+      PublicPaging
     },
     data() {
       return {
