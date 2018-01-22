@@ -9,12 +9,13 @@
           </ul>
         </div>
 
-        <div class="erweima"><img src="/static/img/erweima.png" width="120" height="120" alt=""/><span>扫码关注微信平台</span></div>
+        <div class="erweima"><img src="/static/img/erweima.png" width="120" height="120" alt=""/><span>扫码关注微信平台</span>
+        </div>
         <div class="btm_contact">
           <span>客服邮箱</span>
           <font>xxx.163.com</font>
           <span>客服热线（工作时间 8:30-17:30）</span>
-          <font >0571-88888888</font>
+          <font>0571-88888888</font>
         </div>
       </div>
 
@@ -40,7 +41,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>
