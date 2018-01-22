@@ -8,7 +8,7 @@
         <a href="javascript:;" :class="{ on: page === cur}"><span>{{page}}</span></a>
       </li>
       <li v-if="showNextMore"><a href="javascript:;"><span>...</span></a></li>
-      <li @click.prevent="last"><a :class="{ on: pages === cur}"><span>{{pages}}</span></a></li>
+      <li @click.prevent="last" v-if="pages > 1"><a :class="{ on: pages === cur}"><span>{{pages}}</span></a></li>
       <li @click.prevent="next"><a href="javascript:;" :class="{ no_last: pages === cur}"><span></span></a></li>
     </ul>
   </div>
@@ -39,8 +39,8 @@
       },
       //当前页
       pageIndex: {
-        type : Number,
-        default : 1
+        type: Number,
+        default: 1
       },
       //活动的页码最多显示数
       groups: {
@@ -53,7 +53,7 @@
       }
     },
     computed: {
-      pages(){
+      pages() {
         return Math.ceil(this.size / this.limit)
       },
       pagesArray() {
@@ -65,8 +65,8 @@
 
 
         const offset = {
-          start : current - _offset,
-          end   : current + _offset
+          start: current - _offset,
+          end: current + _offset
         }
 
         if (offset.start < 1) {
@@ -80,12 +80,12 @@
         if (offset.start < 1) offset.start = 1
 
         this.showPrevMore = (offset.start > 2)
-        this.showNextMore = (offset.end < pageCount -1)
+        this.showNextMore = (offset.end < pageCount - 1)
 
         if (offset.start === 1) {
           offset.start = 2
         }
-        if (offset.end === this.pages){
+        if (offset.end === this.pages) {
           offset.end = this.pages - 1
         }
 
@@ -98,33 +98,33 @@
     },
     methods: {
       choose(page) {
-        if (this.cur !== page){
+        if (this.cur !== page) {
           this.cur = page
           this.jump(page)
         }
       },
-      prev(){
+      prev() {
         if (this.cur > 1) {
           this.choose(this.cur - 1)
         }
       },
-      next(){
+      next() {
         if (this.cur < this.pages) {
           this.choose(this.cur + 1)
         }
       },
-      first(){
+      first() {
         if (this.cur !== 1) {
           this.choose(1)
         }
       },
-      last(){
+      last() {
         if (this.cur !== this.pages) {
           this.choose(this.pages)
         }
       },
     },
-    watch : {
+    watch: {
       pageIndex(val) {
         this.cur = val || 1
       },
