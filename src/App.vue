@@ -7,3 +7,6 @@
 <script>
 
 </script>
+<style>
+  @import "common/css/public.css";
+</style>

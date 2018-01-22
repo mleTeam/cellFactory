@@ -194,5 +194,5 @@
 </script>
 
 <style>
-  @import './css/jquery.fullPage.css'
+  @import './css/jquery.fullPage.css';
 </style>

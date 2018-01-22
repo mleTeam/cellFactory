@@ -4,15 +4,15 @@
     <div class="main">
       <div class="main_cont">
         <div class="m_search_left">
-          <public-search-options @setId="_setAreaId" :items="area.items"
+          <public-search-options :getId="_setAreaId" :items="area.items"
                                  :titleName="area.titleName"></public-search-options>
-          <public-search-options @setId="_setSectorId" :items="industrySector.items"
+          <public-search-options :getId="_setSectorId" :items="industrySector.items"
                                  :titleName="industrySector.titleName"></public-search-options>
         </div>
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
           <product-list :items="items"></product-list>
-          <div id="paging1" class="page" style=" width:830px; margin:0 auto;"></div>
+          <paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="cur"></paging>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -26,6 +26,7 @@
   import PublicBottom from 'components/public/bottom'
   import PublicSearchOptions from 'components/public/searchOptions'
   import ProductList from 'components/product/list'
+  import Paging from 'components/public/paging'
 
   export default {
     name: 'product_index',
@@ -33,7 +34,8 @@
       PublicHead,
       PublicBottom,
       PublicSearchOptions,
-      ProductList
+      ProductList,
+      Paging
     },
     data() {
       return {
@@ -147,11 +149,10 @@
             product_state: 2
           }
         ],
-        currentPage: 1
+        size: 200,
+        limit: 10,
+        cur: 1
       }
-    },
-    mounted() {
-      this._showPage()
     },
     methods: {
       _setAreaId(id) {
@@ -162,14 +163,8 @@
         this.sectorId = id
         console.log('已选行业领域ID:' + this.sectorId)
       },
-      _showPage() {
-        let paging1 = $("#paging1")
-        paging1.pagination({
-          items: 10,
-          itemsOnPage: 1,
-          currentPage: this.currentPage,
-          cssStyle: 'light-theme'
-        })
+      _choosePage(page) {
+        console.log('跳转第' + page + '页')
       }
     }
   }

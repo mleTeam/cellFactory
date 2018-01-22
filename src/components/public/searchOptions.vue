@@ -4,7 +4,7 @@
       <div class="sort_title">{{ titleName }}</div>
       <ul>
         <li v-for="item in items">
-          <a href="javaScript:void(0)" @click="getId(item.id)" :key="item.id" :class="{ on: item.id == choose }">
+          <a href="javaScript:void(0)" @click="changeId(item.id)" :key="item.id" :class="{ on: item.id == choose }">
             {{item.name}}
           </a>
         </li>
@@ -22,6 +22,9 @@
       },
       items: {
         type: Array
+      },
+      getId: {
+        type: Function
       }
     },
     data() {
@@ -30,9 +33,9 @@
       }
     },
     methods: {
-      getId(id) {
+      changeId(id) {
         this.choose = id;
-        this.$emit('setId', id)
+        this.getId(id);
       }
     }
   }

@@ -3,8 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+var webpack = require("webpack")
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -29,7 +30,8 @@ module.exports = {
       'common': resolve('src/common'),
       'components': resolve('src/components'),
       'base': resolve('src/base'),
-      'store': resolve('src/store')
+      'store': resolve('src/store'),
+      'jquery': 'jquery'
     }
   },
   module: {
@@ -81,5 +83,11 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery"
+    })
+  ]
 }

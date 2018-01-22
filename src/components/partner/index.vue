@@ -5,11 +5,11 @@
       <div class="main">
         <div class="main_cont">
           <div class="m_search_left">
-            <public-search-options @setId="_setAreaId" :items="area.items"
+            <public-search-options :getId="_setAreaId" :items="area.items"
                                    :titleName="area.titleName"></public-search-options>
-            <public-search-options @setId="_setWorkExperienceId" :items="workExperience.items"
+            <public-search-options :getId="_setWorkExperienceId" :items="workExperience.items"
                                    :titleName="workExperience.titleName"></public-search-options>
-            <public-search-options @setId="_setEducation" :items="education.items"
+            <public-search-options :getId="_setEducation" :items="education.items"
                                    :titleName="education.titleName"></public-search-options>
           </div>
           <div class="m_search_right">
