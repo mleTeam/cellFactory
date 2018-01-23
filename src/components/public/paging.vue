@@ -23,7 +23,7 @@
         size: this.pageTotal,
         limit: this.pageSize,
         showPrevMore: false,
-        showNextMore: false,
+        showNextMore: false
       }
     },
     props: {
@@ -35,7 +35,7 @@
       //每页显示的数量
       pageSize: {
         type: Number,
-        default: 0
+        default: 10
       },
       //当前页
       pageIndex: {
@@ -125,14 +125,14 @@
       },
     },
     watch: {
-      pageIndex(val) {
-        this.cur = val || 1
+      pageIndex(val = 1) {
+        this.cur = val
       },
-      pageSize(val) {
-        this.limit = val || 10
+      pageSize(val = 10) {
+        this.limit = val
       },
-      pageTotal(val) {
-        this.size = val || 0
+      pageTotal(val = 0) {
+        this.size = val
       }
     }
   }

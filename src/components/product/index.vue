@@ -12,7 +12,7 @@
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
           <product-list :items="items"></product-list>
-          <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="cur"></public-paging>
+          <public-paging :pageTotal="size" :pageSize="limit"  :pageIndex="cur" :jump="_choosePage"></public-paging>
         </div>
       </div>
       <div class="clearfix"></div>
