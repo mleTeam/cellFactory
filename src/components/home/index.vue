@@ -6,14 +6,14 @@
 </template>
 
 <script>
-  import PublicHead from 'components/public/head'
-  import HomePage from 'components/home/page'
+import PublicHead from 'components/public/head'
+import HomePage from 'components/home/page'
 
-  export default {
-    name: 'home_index',
-    components: {
-      PublicHead,
-      HomePage
-    }
+export default {
+  name: 'home_index',
+  components: {
+    PublicHead,
+    HomePage
   }
+}
 </script>

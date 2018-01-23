@@ -11,12 +11,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'news_notice',
-    props: {
-      items: {
-        type: Array
-      }
+export default {
+  name: 'news_notice',
+  props: {
+    items: {
+      type: Array
     }
   }
+}
 </script>

@@ -8,13 +8,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'news_banner',
-    props: {
-      items: {
-        type: Array
-      }
-    },
-    methods: {}
-  }
+export default {
+  name: 'news_banner',
+  props: {
+    items: {
+      type: Array
+    }
+  },
+  methods: {}
+}
 </script>

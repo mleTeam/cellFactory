@@ -5,7 +5,7 @@
         <div class="btm_logo"></div>
         <div class="btm_link">
           <ul>
-            <li v-for="item in items"><a href="javaScript:void(0)" @click="$goRoute(item.url)">{{item.name}}</a></li>
+            <li v-for="item in items" :key="item" ><a href="javaScript:void(0)" @click="$goRoute(item.url)">{{item.name}}</a></li>
           </ul>
         </div>
 
@@ -26,18 +26,18 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        items: [
-          {name: '关于我们', url: ''},
-          {name: '联系我们', url: ''},
-          {name: '新手帮助', url: ''},
-          {name: '人才招聘', url: ''},
-          {name: '服务条款', url: ''},
-          {name: '友情链接', url: ''}
-        ]
-      }
+export default {
+  data() {
+    return {
+      items: [
+        { id: 1, name: '关于我们', url: '' },
+        { id: 2, name: '联系我们', url: '' },
+        { id: 3, name: '新手帮助', url: '' },
+        { id: 4, name: '人才招聘', url: '' },
+        { id: 5, name: '服务条款', url: '' },
+        { id: 6, name: '友情链接', url: '' }
+      ]
     }
   }
+}
 </script>

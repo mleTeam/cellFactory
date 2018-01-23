@@ -7,7 +7,7 @@
 
         <div class="nav">
           <ul>
-            <li v-for="item in items" :class="item.state"><a href="javaScript:void(0)" @click="$goRoute(item.url)">{{item.name}}</a></li>
+            <li v-for="item in items" :class="item.state" :key="item.id"><a href="javaScript:void(0)" @click="$goRoute(item.url)">{{item.name}}</a></li>
           </ul>
         </div>
 
@@ -22,17 +22,17 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        items: [
-          {name: '首页', url: '/homeIndex', state: 'on'},
-          {name: '找项目', url: '/productIndex', state: ''},
-          {name: '找合伙人', url: '/partnerIndex', state: ''},
-          {name: '关于我们', url: '/aboutIndex', state: ''},
-          {name: '新闻公告', url: '/newsIndex', state: ''}
-        ]
-      }
+export default {
+  data() {
+    return {
+      items: [
+        { id: 1, name: '首页', url: '/homeIndex', state: 'on' },
+        { id: 2, name: '找项目', url: '/productIndex', state: '' },
+        { id: 3, name: '找合伙人', url: '/partnerIndex', state: '' },
+        { id: 4, name: '关于我们', url: '/aboutIndex', state: '' },
+        { id: 5, name: '新闻公告', url: '/newsIndex', state: '' }
+      ]
     }
   }
+}
 </script>
