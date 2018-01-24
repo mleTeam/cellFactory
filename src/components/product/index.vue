@@ -12,7 +12,7 @@
         <div class="m_search_right">
           <div class="main_search"><input type="text" placeholder="请输入项目关键字"><a href="javaScript:void(0)">搜索</a></div>
           <product-list :items="items"></product-list>
-          <public-paging :pageTotal="size" :pageSize="limit"  :pageIndex="cur" :jump="_choosePage"></public-paging>
+          <public-paging :pageTotal="size" :pageSize="limit" :pageIndex="cur" :jump="_choosePage"></public-paging>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -37,42 +37,42 @@ export default {
     ProductList,
     PublicPaging
   },
-  data() {
+  data () {
     return {
       areaId: 0,
       sectorId: 0,
       area: {
         titleName: '所在地区',
         items: [
-          { name: '全部', id: 0 },
-          { name: '杭州', id: 1 },
-          { name: '上海', id: 2 },
-          { name: '深圳', id: 3 },
-          { name: '武汉', id: 4 },
-          { name: '成都', id: 5 },
-          { name: '苏州', id: 6 },
-          { name: '重庆', id: 7 },
-          { name: '广州', id: 8 },
-          { name: '济南', id: 9 },
-          { name: '厦门', id: 10 },
-          { name: '南京', id: 11 }
+          {name: '全部', id: 0},
+          {name: '杭州', id: 1},
+          {name: '上海', id: 2},
+          {name: '深圳', id: 3},
+          {name: '武汉', id: 4},
+          {name: '成都', id: 5},
+          {name: '苏州', id: 6},
+          {name: '重庆', id: 7},
+          {name: '广州', id: 8},
+          {name: '济南', id: 9},
+          {name: '厦门', id: 10},
+          {name: '南京', id: 11}
         ]
       },
       industrySector: {
         titleName: '行业领域',
         items: [
-          { name: '全部', id: 0 },
-          { name: '金融', id: 1 },
-          { name: '企业服务', id: 2 },
-          { name: '体育', id: 3 },
-          { name: '技术', id: 4 },
-          { name: '消费', id: 5 },
-          { name: '文化娱乐', id: 6 },
-          { name: '教育', id: 7 },
-          { name: '汽车交通', id: 8 },
-          { name: '人工智能', id: 9 },
-          { name: '二次元', id: 10 },
-          { name: '其他', id: 11 }
+          {name: '全部', id: 0},
+          {name: '金融', id: 1},
+          {name: '企业服务', id: 2},
+          {name: '体育', id: 3},
+          {name: '技术', id: 4},
+          {name: '消费', id: 5},
+          {name: '文化娱乐', id: 6},
+          {name: '教育', id: 7},
+          {name: '汽车交通', id: 8},
+          {name: '人工智能', id: 9},
+          {name: '二次元', id: 10},
+          {name: '其他', id: 11}
         ]
       },
       items: [
@@ -80,9 +80,9 @@ export default {
           product_id: 1,
           product_name: '金融大数据智能导航系统平台',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 232,
@@ -93,9 +93,9 @@ export default {
           product_id: 2,
           product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 9,
@@ -106,9 +106,9 @@ export default {
           product_id: 3,
           product_name: '大学生校园电影院',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '暂无',
           product_apply_count: 23,
@@ -119,9 +119,9 @@ export default {
           product_id: 4,
           product_name: '金融大数据智能导航系统平台',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 232,
@@ -132,9 +132,9 @@ export default {
           product_id: 5,
           product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 9,
@@ -145,9 +145,9 @@ export default {
           product_id: 6,
           product_name: '大学生校园电影院',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '暂无',
           product_apply_count: 23,
@@ -158,9 +158,9 @@ export default {
           product_id: 7,
           product_name: '金融大数据智能导航系统平台',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 232,
@@ -171,9 +171,9 @@ export default {
           product_id: 8,
           product_name: '美国硅谷专利设计的运动防尘呼吸口罩',
           product_tag: [
-            { name: '程序开发' },
-            { name: 'ui设计' },
-            { name: '系统测试' }
+            {name: '程序开发'},
+            {name: 'ui设计'},
+            {name: '系统测试'}
           ],
           product_address: '杭州市滨江xxx孵化基地',
           product_apply_count: 9,
@@ -187,15 +187,15 @@ export default {
     }
   },
   methods: {
-    _setAreaId(id) {
+    _setAreaId (id) {
       this.areaId = id
       console.log('已选地区ID:' + this.areaId)
     },
-    _setSectorId(id) {
+    _setSectorId (id) {
       this.sectorId = id
       console.log('已选行业领域ID:' + this.sectorId)
     },
-    _choosePage(page) {
+    _choosePage (page) {
       console.log('跳转第' + page + '页')
     }
   }

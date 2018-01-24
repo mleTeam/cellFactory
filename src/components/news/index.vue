@@ -6,7 +6,8 @@
         <news-banner :items="banner"></news-banner>
         <div class="news_left">
           <news-list :items="items"></news-list>
-          <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage" :pageIndex="currentPage"></public-paging>
+          <public-paging :pageTotal="size" :pageSize="limit" :jump="_choosePage"
+                         :pageIndex="currentPage"></public-paging>
         </div>
         <div class="news_right">
           <span>公告</span>
@@ -37,7 +38,7 @@ export default {
     NewsNotice,
     PublicPaging
   },
-  data() {
+  data () {
     return {
       currentPage: 1,
       size: 200,
@@ -86,18 +87,18 @@ export default {
         }
       ],
       notice: [
-        { id: 1, title: '新赛季优惠券', date: '2018-10-10' },
-        { id: 2, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10' },
-        { id: 3, title: '这是新赛季到来的首次版本更新', date: '2018-10-10' },
-        { id: 4, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10' },
-        { id: 5, title: '这是新赛季到来的首次版本更新', date: '2018-10-10' },
-        { id: 6, title: '新赛季优惠券', date: '2018-10-10' },
-        { id: 7, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10' }
+        {id: 1, title: '新赛季优惠券', date: '2018-10-10'},
+        {id: 2, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10'},
+        {id: 3, title: '这是新赛季到来的首次版本更新', date: '2018-10-10'},
+        {id: 4, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10'},
+        {id: 5, title: '这是新赛季到来的首次版本更新', date: '2018-10-10'},
+        {id: 6, title: '新赛季优惠券', date: '2018-10-10'},
+        {id: 7, title: '平台新系统将于20日晚13:00更新', date: '2018-10-10'}
       ]
     }
   },
   methods: {
-    _choosePage(page) {
+    _choosePage (page) {
       console.log('跳转第' + page + '页')
     }
   }

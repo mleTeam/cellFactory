@@ -17,7 +17,7 @@
 <script>
 export default {
   name: 'public_paging',
-  data() {
+  data () {
     return {
       cur: this.pageIndex,
       size: this.pageTotal,
@@ -53,10 +53,10 @@ export default {
     }
   },
   computed: {
-    pages() {
+    pages () {
       return Math.ceil(this.size / this.limit)
     },
-    pagesArray() {
+    pagesArray () {
       const array = []
       const perPages = this.groups
       const pageCount = this.pages
@@ -96,41 +96,41 @@ export default {
     }
   },
   methods: {
-    choose(page) {
+    choose (page) {
       if (this.cur !== page) {
         this.cur = page
         this.jump(page)
       }
     },
-    prev() {
+    prev () {
       if (this.cur > 1) {
         this.choose(this.cur - 1)
       }
     },
-    next() {
+    next () {
       if (this.cur < this.pages) {
         this.choose(this.cur + 1)
       }
     },
-    first() {
+    first () {
       if (this.cur !== 1) {
         this.choose(1)
       }
     },
-    last() {
+    last () {
       if (this.cur !== this.pages) {
         this.choose(this.pages)
       }
     }
   },
   watch: {
-    pageIndex(val = 1) {
+    pageIndex (val = 1) {
       this.cur = val
     },
-    pageSize(val = 10) {
+    pageSize (val = 10) {
       this.limit = val
     },
-    pageTotal(val = 0) {
+    pageTotal (val = 0) {
       this.size = val
     }
   }

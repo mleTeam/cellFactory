@@ -5,7 +5,7 @@
       <div class="section s1">
         <div class="full_logo"></div>
         <div class="slogan_title"></div>
-        <a  href="javaScript:void(0)" class="btn_start" @click="$goRoute('')">开启成功之路</a>
+        <a href="javaScript:void(0)" class="btn_start" @click="$goRoute('')">开启成功之路</a>
         <div class="full_data">
           <ul>
             <li><p><font>成功创业项目</font><span>{{page1ProductCount}}个</span></p></li>
@@ -23,7 +23,7 @@
         <div class="project_list">
           <ul>
 
-            <li v-for="item in successItems" :key="item" >
+            <li v-for="item in successItems" :key="item">
               <a href="javaScript:void(0)" @click="$goRoute(item.url)">
                 <div class="pro_money">风投{{item.money}}万</div>
                 <img :src="item.images" width="380" height="285" alt=""/>
@@ -47,13 +47,15 @@
           <ul>
 
             <li v-for="item in choiceItems" :key="item">
-            <a href="javaScript:void(0)" @click="$goRoute(item.url)">
-              <img :src="item.images" width="380" height="285" alt=""/>
-              <span>{{item.title}}</span>
-              <p>{{item.productDesc}}</p>
-              <div class="pro_keyword"><span class="font_gray" v-for="job in item.jobs" :key="job">{{job.name}}</span></div>
-              <div class="pro_data"><p><span>已申请</span><font>{{item.applyPerson}}<i>人</i></font></p><p><span>已浏览</span><font>{{item.browse}}<i>次</i></font></p></div>
-            </a>
+              <a href="javaScript:void(0)" @click="$goRoute(item.url)">
+                <img :src="item.images" width="380" height="285" alt=""/>
+                <span>{{item.title}}</span>
+                <p>{{item.productDesc}}</p>
+                <div class="pro_keyword"><span class="font_gray" v-for="job in item.jobs" :key="job">{{job.name}}</span>
+                </div>
+                <div class="pro_data"><p><span>已申请</span><font>{{item.applyPerson}}<i>人</i></font></p>
+                  <p><span>已浏览</span><font>{{item.browse}}<i>次</i></font></p></div>
+              </a>
             </li>
 
           </ul>
@@ -64,16 +66,19 @@
       </div>
 
 
-
       <!-- 第四页 -->
       <div class="section s4">
 
         <div class="news">
-          <a  href="news.html"><img src="/static/img/news/1.jpg" width="1200" height="260" alt=""/></a></div>
+          <a href="news.html"><img src="/static/img/news/1.jpg" width="1200" height="260" alt=""/></a></div>
         <div class="pro_title"><span>合作机构</span></div>
         <div class="cooperate_link">
           <ul>
-            <li v-for="partner in partners" :key="partner"><a href="javaScript:void(0)" @click="$goRoute(partner.url)"><img :src="partner.images" width="285" height="100" alt=""/></a></li>
+            <li v-for="partner in partners" :key="partner">
+              <a href="javaScript:void(0)" @click="$goRoute(partner.url)">
+                <img :src="partner.images" width="285" height="100" alt=""/>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -91,7 +96,7 @@ import PublicBottom from 'components/public/bottom'
 
 export default {
   name: 'home_page',
-  data() {
+  data () {
     return {
       page1ProductCount: '3,413',
       page1Money: '152,214,154',
@@ -131,9 +136,9 @@ export default {
           productDesc:
             '所谓“互联网＋”，就是借助互联网的手段对传统企业进行技术改造，提升传统企业的竞争力，其核心... ',
           jobs: [
-            { name: '后端开发' },
-            { name: '前端设计' },
-            { name: 'ui设计' }
+            {name: '后端开发'},
+            {name: '前端设计'},
+            {name: 'ui设计'}
           ],
           applyPerson: '23',
           browse: '1235'
@@ -144,7 +149,7 @@ export default {
           title: '美国硅谷专利设计的运动防尘呼吸口罩',
           productDesc:
             '一款适用于最广人群，舒适度和高过滤效果于一身的防霾口罩。',
-          jobs: [{ name: '测试' }, { name: '前端设计' }, { name: 'ui设计' }],
+          jobs: [{name: '测试'}, {name: '前端设计'}, {name: 'ui设计'}],
           applyPerson: '2514',
           browse: '65474'
         },
@@ -154,27 +159,27 @@ export default {
           title: '大学生校园电影院',
           productDesc: '国内首家大学生校园影院－让大学校园high起来',
           jobs: [
-            { name: '后端开发' },
-            { name: '前端设计' },
-            { name: 'ui设计' }
+            {name: '后端开发'},
+            {name: '前端设计'},
+            {name: 'ui设计'}
           ],
           applyPerson: '23',
           browse: '1235'
         }
       ],
       partners: [
-        { url: '', images: '/static/img//link/1.png' },
-        { url: '', images: '/static/img//link/2.png' },
-        { url: '', images: '/static/img//link/3.png' },
-        { url: '', images: '/static/img//link/4.png' }
+        {url: '', images: '/static/img//link/1.png'},
+        {url: '', images: '/static/img//link/2.png'},
+        {url: '', images: '/static/img//link/3.png'},
+        {url: '', images: '/static/img//link/4.png'}
       ]
     }
   },
-  mounted: function() {
+  mounted: function () {
     this._Fullpagetab()
   },
   methods: {
-    _Fullpagetab() {
+    _Fullpagetab () {
       var con = $('.con')
       con.fullpage({
         navigation: true,
@@ -183,7 +188,7 @@ export default {
         verticalCentered: false
       })
     },
-    _GetChoiceItems() {
+    _GetChoiceItems () {
       var self = this
 
       var url = '/api/product/getChoices/'
@@ -208,5 +213,5 @@ export default {
 </script>
 
 <style>
-@import './css/jquery.fullPage.css';
+  @import './css/jquery.fullPage.css';
 </style>

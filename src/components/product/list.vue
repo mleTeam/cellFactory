@@ -23,7 +23,7 @@ export default {
     }
   },
   filters: {
-    productState: function(value) {
+    productState: function (value) {
       if (value == 1) {
         return '招募中'
       } else if (value == 2) {

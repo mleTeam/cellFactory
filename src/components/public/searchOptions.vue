@@ -27,13 +27,13 @@ export default {
       type: Function
     }
   },
-  data() {
+  data () {
     return {
       choose: 0
     }
   },
   methods: {
-    changeId(id) {
+    changeId (id) {
       this.choose = id
       this.getId(id)
     }
