@@ -5,7 +5,7 @@
         <div class="btm_logo"></div>
         <div class="btm_link">
           <ul>
-            <li v-for="item in items" :key="item">
+            <li v-for="item in items" :key="item.id">
               <a href="javaScript:void(0)" @click="$goRoute(item.url)">{{item.name}}</a></li>
           </ul>
         </div>

@@ -23,7 +23,7 @@
         <div class="project_list">
           <ul>
 
-            <li v-for="item in successItems" :key="item">
+            <li v-for="item in successItems" :key="item.id">
               <a href="javaScript:void(0)" @click="$goRoute(item.url)">
                 <div class="pro_money">风投{{item.money}}万</div>
                 <img :src="item.images" width="380" height="285" alt=""/>
@@ -46,12 +46,12 @@
         <div class="project_list">
           <ul>
 
-            <li v-for="item in choiceItems" :key="item">
+            <li v-for="item in choiceItems" :key="item.id">
               <a href="javaScript:void(0)" @click="$goRoute(item.url)">
                 <img :src="item.images" width="380" height="285" alt=""/>
                 <span>{{item.title}}</span>
                 <p>{{item.productDesc}}</p>
-                <div class="pro_keyword"><span class="font_gray" v-for="job in item.jobs" :key="job">{{job.name}}</span>
+                <div class="pro_keyword"><span class="font_gray" v-for="job in item.jobs" :key="job.index">{{job.name}}</span>
                 </div>
                 <div class="pro_data"><p><span>已申请</span><font>{{item.applyPerson}}<i>人</i></font></p>
                   <p><span>已浏览</span><font>{{item.browse}}<i>次</i></font></p></div>
@@ -74,7 +74,7 @@
         <div class="pro_title"><span>合作机构</span></div>
         <div class="cooperate_link">
           <ul>
-            <li v-for="partner in partners" :key="partner">
+            <li v-for="partner in partners" :key="partner.id">
               <a href="javaScript:void(0)" @click="$goRoute(partner.url)">
                 <img :src="partner.images" width="285" height="100" alt=""/>
               </a>
@@ -103,6 +103,7 @@ export default {
       page1Person: '511,166',
       successItems: [
         {
+          id: 1,
           url: '',
           money: '100',
           images: '/static/img/project/1.jpg',
@@ -112,6 +113,7 @@ export default {
           address: '杭州市滨江xxx孵化基地'
         },
         {
+          id: 2,
           url: '',
           money: '40',
           images: '/static/img/project/2.jpg',
@@ -120,6 +122,7 @@ export default {
           address: '杭州市滨江xxx孵化基地'
         },
         {
+          id: 3,
           url: '',
           money: '80',
           images: '/static/img/project/3.jpg',
@@ -130,6 +133,7 @@ export default {
       ],
       choiceItems: [
         {
+          id: 1,
           url: '',
           images: '/static/img/project/4.jpg',
           title: '金融大数据智能导航系统平台',
@@ -144,6 +148,7 @@ export default {
           browse: '1235'
         },
         {
+          id: 2,
           url: '',
           images: '/static/img/project/1.jpg',
           title: '美国硅谷专利设计的运动防尘呼吸口罩',
@@ -154,6 +159,7 @@ export default {
           browse: '65474'
         },
         {
+          id: 3,
           url: '',
           images: '/static/img/project/2.jpg',
           title: '大学生校园电影院',
@@ -168,10 +174,10 @@ export default {
         }
       ],
       partners: [
-        {url: '', images: '/static/img//link/1.png'},
-        {url: '', images: '/static/img//link/2.png'},
-        {url: '', images: '/static/img//link/3.png'},
-        {url: '', images: '/static/img//link/4.png'}
+        {id: 1, url: '', images: '/static/img//link/1.png'},
+        {id: 2, url: '', images: '/static/img//link/2.png'},
+        {id: 3, url: '', images: '/static/img//link/3.png'},
+        {id: 4, url: '', images: '/static/img//link/4.png'}
       ]
     }
   },
