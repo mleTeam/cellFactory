@@ -57,10 +57,11 @@ export default {
       return Math.ceil(this.size / this.limit)
     },
     pagesArray () {
+      let self = this
       const array = []
-      const perPages = this.groups
-      const pageCount = this.pages
-      let current = this.cur
+      const perPages = self.groups
+      const pageCount = self.pages
+      let current = self.cur
       const _offset = (perPages - 1) / 2
 
       const offset = {
@@ -84,8 +85,8 @@ export default {
       if (offset.start === 1) {
         offset.start = 2
       }
-      if (offset.end === this.pages) {
-        offset.end = this.pages - 1
+      if (offset.end === self.pages) {
+        offset.end = self.pages - 1
       }
 
       for (let i = offset.start; i <= offset.end; i++) {
