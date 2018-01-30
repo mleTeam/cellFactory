@@ -2,7 +2,7 @@
   <div id="product_list">
     <div class="search_pro_list">
       <ul>
-        <li v-for="item in items" :key="item.product_id">
+        <li v-for="(item,index) in items" :key="index" @click="_choose(index)">
           <div><a href="javaScript:void(0)">{{item.product_name}}</a><span
             :class="{ status_send: item.product_state == 2 }">{{item.product_state | productState}}</span></div>
           <p><b v-for="tag in item.product_tag" :key="tag.id">{{tag.name}}</b></p>
@@ -29,6 +29,11 @@ export default {
       } else if (value == 2) {
         return '已投递'
       }
+    }
+  },
+  methods: {
+    _choose (index) {
+      console.log('当前是第' + index + '个')
     }
   }
 }
