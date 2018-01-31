@@ -4,6 +4,9 @@ import HomeIndex from 'components/home/index'
 import ProductIndex from 'components/product/index'
 import PartnerIndex from 'components/partner/index'
 import NewsIndex from 'components/news/index'
+import Register from 'components/register/index'
+import RegisterSelectUserType from 'components/register/selectUserType'
+import Login from 'components/login/index'
 
 Vue.use(VueRouter)
 
@@ -14,6 +17,11 @@ const router = new VueRouter({
       path: '/',
       redirect: '/homeIndex',
       component: HomeIndex
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/homeIndex',
@@ -34,6 +42,16 @@ const router = new VueRouter({
       path: '/newsIndex',
       name: 'newsIndex',
       component: NewsIndex
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/registerSelectUserType',
+      name: 'registerSelectUserType',
+      component: RegisterSelectUserType
     }
   ]
 })
