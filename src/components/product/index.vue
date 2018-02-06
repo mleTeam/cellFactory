@@ -31,11 +31,11 @@ import PublicPaging from 'components/public/paging'
 export default {
   name: 'product_index',
   components: {
-    PublicHead,
-    PublicBottom,
-    PublicSearchOptions,
-    ProductList,
-    PublicPaging
+    PublicHead: resolve => require(['components/public/head'], resolve),
+    PublicBottom: resolve => require(['components/public/bottom'], resolve),
+    PublicSearchOptions: resolve => require(['components/public/searchOptions'], resolve),
+    ProductList: resolve => require(['components/product/list'], resolve),
+    PublicPaging: resolve => require(['components/public/paging'], resolve)
   },
   data () {
     return {

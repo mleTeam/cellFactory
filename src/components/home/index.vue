@@ -6,14 +6,11 @@
 </template>
 
 <script>
-import PublicHead from 'components/public/head'
-import HomePage from 'components/home/page'
-
 export default {
   name: 'home_index',
   components: {
-    PublicHead,
-    HomePage
+    PublicHead: resolve => require(['components/public/head'], resolve),
+    HomePage: resolve => require(['components/home/page'], resolve)
   }
 }
 </script>

@@ -92,10 +92,12 @@
 
 <script>
 import fullpage from './js/jquery.fullPage.min.js'
-import PublicBottom from 'components/public/bottom'
 
 export default {
   name: 'home_page',
+  components: {
+    PublicBottom: resolve => require(['components/public/bottom'], resolve)
+  },
   data () {
     return {
       page1ProductCount: '3,413',
@@ -211,9 +213,6 @@ export default {
         }
       )
     }
-  },
-  components: {
-    PublicBottom
   }
 }
 </script>

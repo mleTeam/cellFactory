@@ -21,22 +21,15 @@
 </template>
 
 <script>
-import PublicHead from 'components/public/head'
-import PublicBottom from 'components/public/bottom'
-import NewsBanner from 'components/news/banner'
-import NewsList from 'components/news/list'
-import NewsNotice from 'components/news/notice'
-import PublicPaging from 'components/public/paging'
-
 export default {
   name: 'news_index',
   components: {
-    PublicHead,
-    PublicBottom,
-    NewsBanner,
-    NewsList,
-    NewsNotice,
-    PublicPaging
+    PublicHead: resolve => require(['components/public/head'], resolve),
+    PublicBottom: resolve => require(['components/public/bottom'], resolve),
+    NewsBanner: resolve => require(['components/news/banner'], resolve),
+    NewsList: resolve => require(['components/news/list'], resolve),
+    NewsNotice: resolve => require(['components/news/notice'], resolve),
+    PublicPaging: resolve => require(['components/public/paging'], resolve)
   },
   data () {
     return {

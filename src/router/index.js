@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeIndex from 'components/home/index'
-import ProductIndex from 'components/product/index'
-import PartnerIndex from 'components/partner/index'
-import NewsIndex from 'components/news/index'
-import Register from 'components/register/index'
-import RegisterSelectUserType from 'components/register/selectUserType'
-import Login from 'components/login/index'
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -16,42 +8,42 @@ const router = new VueRouter({
     {
       path: '/',
       redirect: '/homeIndex',
-      component: HomeIndex
+      component: resolve => require(['components/home/index'], resolve)
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: resolve => require(['components/login/index'], resolve)
     },
     {
       path: '/homeIndex',
       name: 'homeIndex',
-      component: HomeIndex
+      component: resolve => require(['components/home/index'], resolve)
     },
     {
       path: '/productIndex',
       name: 'productIndex',
-      component: ProductIndex
+      component: resolve => require(['components/product/index'], resolve)
     },
     {
       path: '/partnerIndex',
       name: 'partnerIndex',
-      component: PartnerIndex
+      component: resolve => require(['components/partner/index'], resolve)
     },
     {
       path: '/newsIndex',
       name: 'newsIndex',
-      component: NewsIndex
+      component: resolve => require(['components/news/index'], resolve)
     },
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: resolve => require(['components/register/index'], resolve)
     },
     {
       path: '/registerSelectUserType',
       name: 'registerSelectUserType',
-      component: RegisterSelectUserType
+      component: resolve => require(['components/register/selectUserType'], resolve)
     }
   ]
 })

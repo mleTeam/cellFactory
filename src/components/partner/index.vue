@@ -26,20 +26,14 @@
 </template>
 
 <script>
-import PublicHead from 'components/public/head'
-import PublicBottom from 'components/public/bottom'
-import PublicSearchOptions from 'components/public/searchOptions'
-import PartnerList from 'components/partner/list'
-import PublicPaging from 'components/public/paging'
-
 export default {
   name: 'partner_index',
   components: {
-    PublicHead,
-    PublicBottom,
-    PublicSearchOptions,
-    PartnerList,
-    PublicPaging
+    PublicHead: resolve => require(['components/public/head'], resolve),
+    PublicBottom: resolve => require(['components/public/bottom'], resolve),
+    PublicSearchOptions: resolve => require(['components/public/searchOptions'], resolve),
+    PartnerList: resolve => require(['components/partner/list'], resolve),
+    PublicPaging: resolve => require(['components/public/paging'], resolve)
   },
   data() {
     return {
