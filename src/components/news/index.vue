@@ -1,6 +1,5 @@
 <template>
   <div id="news_index">
-    <public-head></public-head>
     <div class="main">
       <div class="new_cont">
         <news-banner :items="banner"></news-banner>
@@ -16,7 +15,6 @@
       </div>
       <div class="clearfix"></div>
     </div>
-    <public-bottom></public-bottom>
   </div>
 </template>
 
@@ -24,8 +22,6 @@
 export default {
   name: 'news_index',
   components: {
-    PublicHead: resolve => require(['components/public/head'], resolve),
-    PublicBottom: resolve => require(['components/public/bottom'], resolve),
     NewsBanner: resolve => require(['components/news/banner'], resolve),
     NewsList: resolve => require(['components/news/list'], resolve),
     NewsNotice: resolve => require(['components/news/notice'], resolve),

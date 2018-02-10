@@ -31,9 +31,21 @@ const router = new VueRouter({
       component: resolve => require(['components/partner/index'], resolve)
     },
     {
-      path: '/newsIndex',
-      name: 'newsIndex',
-      component: resolve => require(['components/news/index'], resolve)
+      path: '/news',
+      name: 'news',
+      component: resolve => require(['components/news/news'], resolve),
+      children:[
+        {
+          path: '',
+          name: 'index',
+          component: resolve => require(['components/news/index'], resolve)
+        },
+        {
+          path: 'detail/:newsId',
+          name: 'detail',
+          component: resolve => require(['components/news/detail'], resolve)
+        }
+      ]
     },
     {
       path: '/register',

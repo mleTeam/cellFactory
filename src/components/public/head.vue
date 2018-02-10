@@ -32,7 +32,7 @@ export default {
         {id: 2, name: '找项目', url: '/productIndex', state: ''},
         {id: 3, name: '找合伙人', url: '/partnerIndex', state: ''},
         {id: 4, name: '关于我们', url: '/aboutIndex', state: ''},
-        {id: 5, name: '新闻公告', url: '/newsIndex', state: ''}
+        {id: 5, name: '新闻公告', url: '/news', state: ''}
       ]
     }
   }
